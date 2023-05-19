@@ -5,6 +5,8 @@ type CalendarProps = {
 };
 
 const Calendar: React.FC<CalendarProps> = ({ date }) => {
+
+  //this return month year string to display in first row
   const getMonthYearString = (date: Date): string => {
     const timeFormat: Intl.DateTimeFormatOptions = {
       month: "long",
@@ -14,6 +16,7 @@ const Calendar: React.FC<CalendarProps> = ({ date }) => {
     return date.toLocaleDateString(undefined, timeFormat);
   };
 
+  //this returns the abbreviated weekdays
   const getWeekdays = (): string[] => {
     const weekdays = [
       "Sunday",
@@ -27,12 +30,14 @@ const Calendar: React.FC<CalendarProps> = ({ date }) => {
     return weekdays.map((day) => day.slice(0, 2)); // Abbreviate weekdays to 2 characters
   };
 
+  //this returns number of days in month
   const getDaysInMonth = (date: Date): number => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1; // Months are zero-based
     return new Date(year, month, 0).getDate();
   };
 
+  //this returns a 2d matrix of calendar, in which 0 represents empty cell
   const getCalendarMatrix = (date: Date): number[][] => {
     const daysInMonth = getDaysInMonth(date);
     console.log("daysinmonth", daysInMonth);
