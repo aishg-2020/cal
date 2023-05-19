@@ -1,0 +1,13 @@
+.datepicker-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.datepicker-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 10px;
+  }
+  
